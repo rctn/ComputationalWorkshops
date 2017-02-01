@@ -1,6 +1,7 @@
 ## Computational Workshop Tutorials 
 
 Included are files from the Spring 2017 Redwood Workshop Series. These workshops held at Redwood in January & Februrary 2017. These workshops so far are:  
+
 	1.  Git/Github and Introductory Python  
 	2.  Tensorflow   
  
