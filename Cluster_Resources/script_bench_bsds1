@@ -1,0 +1,43 @@
+#!/bin/bash
+# Job name:
+#SBATCH --job-name=bnch1
+#
+# Partition:
+#SBATCH --partition=cortex
+#
+# Constrain Nodes:
+#SBATCH --constraint=cortex_nogpu
+#
+# Processors:
+#SBATCH --ntasks=4
+#
+# Memory:
+#SBATCH --mem-per-cpu=3500M
+#
+# Wall clock limit:
+#SBATCH --time=5:0:00
+#
+#
+#SBATCH -o bnch1.out
+#
+#SBATCH -e bnch1.err
+
+
+module load matlab/R2013a
+
+echo "Running Benchmark (precision,recall, f-measure) code for BSDS images 1"
+date
+
+matlab -nosplash -nodesktop -noFigureWindows << EOF
+
+echo "Made it past"
+datestr(clock)
+
+cd /global/home/users/cwarner/Projects
+
+addpath(genpath(pwd))
+
+bench_bsds500('Kur_PIF_Fourier1','IsoDiff','rM1','sDInf','sP0p2','NF_60_0','kssml',1);
+
+exit
+EOF
